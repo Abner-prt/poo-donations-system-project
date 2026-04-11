@@ -1,0 +1,6 @@
+@donations_system_app_HostAddress = http://localhost:5005
+
+GET {{donations_system_app_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
