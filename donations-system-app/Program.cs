@@ -11,6 +11,7 @@ builder.Services.AddDbContext<DonationsDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IDonorService, DonorService>();
+builder.Services.AddScoped<IDonationService, DonationService>();
 builder.Services.AddTransient<IRequestService, RequestService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
