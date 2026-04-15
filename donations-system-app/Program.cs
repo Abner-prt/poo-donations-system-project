@@ -11,6 +11,9 @@ builder.Services.AddDbContext<DonationsDbContext>(options =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+// Registrar servicios personalizados
+builder.Services.AddScoped<donations_system_app.Services.IDonationService, donations_system_app.Services.DonationService>();
+
 
 var app = builder.Build();
 
