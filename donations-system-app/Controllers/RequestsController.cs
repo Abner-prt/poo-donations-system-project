@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using donations_system_app.Dtos;
-using donations_system_app.Services;
+using donations_system_app.Dtos.Requests;
+using donations_system_app.Services.Requests;
 
 namespace donations_system_app.Controllers
 {
