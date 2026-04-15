@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using donations_system_app.Data;
 using donations_system_app.Dtos;
 using donations_system_app.Entities;
+using donations_system_app.Mappers;
 
 namespace donations_system_app.Services
 {
@@ -31,15 +32,7 @@ namespace donations_system_app.Services
                 throw new Exception("El tipo de necesidad debe ser 'Money' o 'Item'");
             }
 
-            var request = new RequestEntity
-            {
-                InstitutionName = dto.InstitutionName,
-                Description = dto.Description,
-                NeedType = dto.NeedType,
-                RequestedQuantity = dto.RequestedQuantity,
-                Status = "Pending",
-                Date = DateTime.Now
-            };
+            var request = RequestMapper.ToEntity(dto);
 
             _context.Requests.Add(request);
             await _context.SaveChangesAsync();

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using donations_system_app.Data;
 using donations_system_app.Dtos;
 using donations_system_app.Entities;
+using donations_system_app.Mappers;
 
 namespace donations_system_app.Services;
 
@@ -21,14 +22,7 @@ public class DonorService : IDonorService
 
     public async Task<DonorEntity> CreateAsync(DonorDto dto)
     {
-        var donor = new DonorEntity
-        {
-            Name = dto.Name,
-            Email = dto.Email,
-            Phone = dto.Phone,
-            Type = dto.Type,
-            RegisteredAt = DateTime.Now
-        };
+        var donor = DonorMapper.ToEntity(dto);
 
         _context.Donors.Add(donor);
         await _context.SaveChangesAsync();

@@ -1,6 +1,7 @@
 using donations_system_app.Data;
 using donations_system_app.Dtos;
 using donations_system_app.Entities;
+using donations_system_app.Mappers;
 using Microsoft.EntityFrameworkCore;
 
 namespace donations_system_app.Services;
@@ -32,16 +33,8 @@ public class DonationService : IDonationService
             throw new Exception("El donante no existe");
         }
 
-        // Crear la entidad con los datos del DTO
-        var entity = new DonationEntity
-        {
-            DonorId = donationDto.DonorId,
-            Type = donationDto.Type,
-            Description = donationDto.Description,
-            Quantity = donationDto.Quantity,
-            Status = "Available",
-            Date = DateTime.UtcNow
-        };
+        // Crear la entidad usando el mapper
+        var entity = DonationMapper.ToEntity(donationDto);
 
         // Guardar en base de datos
         _context.Donations.Add(entity);
