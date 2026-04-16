@@ -33,6 +33,12 @@ public class DonationService : IDonationService
             throw new Exception("El donante no existe");
         }
 
+        // La donacion debe ser mayor a 0
+        if (donationDto.Quantity <= 0)
+        {
+            throw new Exception("La cantidad donada debe tener un valor mayor a cero.");
+        }
+
         // Crear la entidad usando el mapper
         var entity = DonationMapper.ToEntity(donationDto);
 

@@ -5,7 +5,7 @@ public class DonationEntity
     public int Id { get; set; }
     public int DonorId { get; set; }
     public string Type { get; set; } // 'Money'--'Item'
-    public string Description { get; set; } = string.Empty;
+    public string Description { get; set; }
     public double Quantity { get; set; }
     public string Status { get; set; } = "Available"; // 'Available'--'Delivered'
     public DateTime Date { get; set; } = DateTime.UtcNow;
