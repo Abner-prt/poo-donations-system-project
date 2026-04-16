@@ -89,5 +89,16 @@ namespace donations_system_app.Services
 
             return request;
         }
+
+        // Eliminar una solicitud
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var request = await _context.Requests.FindAsync(id);
+            if (request == null) return false;
+
+            _context.Requests.Remove(request);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

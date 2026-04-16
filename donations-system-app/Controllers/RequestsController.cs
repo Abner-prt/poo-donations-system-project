@@ -60,5 +60,14 @@ namespace donations_system_app.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        // Eliminar una solicitud
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _requestService.DeleteAsync(id);
+            if (!result) return NotFound(new { message = "Solicitud no encontrada." });
+            return Ok(new { message = "Solicitud eliminada correctamente." });
+        }
     }
 }

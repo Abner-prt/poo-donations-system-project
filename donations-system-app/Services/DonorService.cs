@@ -43,4 +43,14 @@ public class DonorService : IDonorService
 
         return donor;
     }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var donor = await _context.Donors.FindAsync(id);
+        if (donor == null) return false;
+
+        _context.Donors.Remove(donor);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 }

@@ -14,4 +14,7 @@ public interface IDonationService
     
     // Actualizar el estado de una donacion
     Task<bool> UpdateStatusAsync(int id, string newStatus);
+
+    // Eliminar una donacion
+    Task<bool> DeleteAsync(int id);
 }

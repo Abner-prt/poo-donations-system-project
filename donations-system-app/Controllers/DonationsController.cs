@@ -56,4 +56,13 @@ public class DonationsController : ControllerBase
         
         return Ok(new { message = "Estado actualizado correctamente" });
     }
+
+    // DELETE /api/donations/{id}
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var result = await _donationService.DeleteAsync(id);
+        if (!result) return NotFound(new { message = "Donacion no encontrada." });
+        return Ok(new { message = "Donacion eliminada correctamente." });
+    }
 }

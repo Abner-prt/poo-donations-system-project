@@ -73,4 +73,15 @@ public class DonationService : IDonationService
         
         return true;
     }
+
+    // Eliminar una donacion de la base de datos
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var donation = await _context.Donations.FindAsync(id);
+        if (donation == null) return false;
+
+        _context.Donations.Remove(donation);
+        await _context.SaveChangesAsync();
+        return true;
+    }
 }

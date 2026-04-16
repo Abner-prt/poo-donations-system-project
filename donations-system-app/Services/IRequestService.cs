@@ -9,5 +9,6 @@ namespace donations_system_app.Services
         Task<List<RequestEntity>> GetCompletedAsync();
         Task<RequestEntity> CreateAsync(RequestDto dto);
         Task<RequestEntity> MarkAsCompletedAsync(int id);
+        Task<bool> DeleteAsync(int id);
     }
 }

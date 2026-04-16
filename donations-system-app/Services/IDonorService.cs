@@ -7,4 +7,5 @@ public interface IDonorService
 {
     Task<IEnumerable<DonorEntity>> GetAllAsync();
     Task<DonorEntity> CreateAsync(DonorDto dto);
+    Task<bool> DeleteAsync(int id);
 }

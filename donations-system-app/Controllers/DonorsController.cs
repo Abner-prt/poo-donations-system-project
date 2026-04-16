@@ -37,4 +37,13 @@ public class DonorsController : ControllerBase
         // Return 201 Created status
         return StatusCode(StatusCodes.Status201Created, donor);
     }
+
+    // DELETE: api/donors/{id}
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var result = await _donorService.DeleteAsync(id);
+        if (!result) return NotFound(new { message = "Donante no encontrado." });
+        return Ok(new { message = "Donante eliminado correctamente." });
+    }
 }
