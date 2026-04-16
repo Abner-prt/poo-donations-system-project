@@ -11,8 +11,8 @@ using donations_system_app.Data;
 namespace donations_system_app.Migrations
 {
     [DbContext(typeof(DonationsDbContext))]
-    [Migration("20260414215408_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260416044541_InitialFinal")]
+    partial class InitialFinal
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

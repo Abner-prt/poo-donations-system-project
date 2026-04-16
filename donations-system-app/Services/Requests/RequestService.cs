@@ -22,6 +22,14 @@ namespace donations_system_app.Services.Requests
                 .ToListAsync();
         }
 
+        // Obtener todas las solicitudes completadas
+        public async Task<List<RequestEntity>> GetCompletedAsync()
+        {
+            return await _context.Requests
+                .Where(r => r.Status == "Completed")
+                .ToListAsync();
+        }
+
         // Crear una nueva solicitud
         public async Task<RequestEntity> CreateAsync(RequestDto dto)
         {

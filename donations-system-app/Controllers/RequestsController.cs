@@ -38,6 +38,14 @@ namespace donations_system_app.Controllers
             return Ok(requests);
         }
 
+        // Ver solicitudes completadas
+        [HttpGet("completed")]
+        public async Task<IActionResult> GetCompleted()
+        {
+            var requests = await _requestService.GetCompletedAsync();
+            return Ok(requests);
+        }
+
         // Marcar solicitud como completada
         [HttpPut("{id}")]
         public async Task<IActionResult> MarkAsCompleted(int id)
