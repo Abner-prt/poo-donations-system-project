@@ -14,7 +14,7 @@ public class RequestEntity
     public string NeedType { get; set; }
 
     // Cantidad solicitada
-    public decimal RequestedQuantity { get; set; }
+    public double RequestedQuantity { get; set; }
 
     // Estado de la solicitud: 'Pending' o 'Completed'
     public string Status { get; set; }

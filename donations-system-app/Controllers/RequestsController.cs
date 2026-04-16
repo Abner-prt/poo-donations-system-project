@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using donations_system_app.Dtos.Requests;
-using donations_system_app.Services.Requests;
+using donations_system_app.Dtos;
+using donations_system_app.Services;
 
 namespace donations_system_app.Controllers
 {
@@ -35,6 +35,14 @@ namespace donations_system_app.Controllers
         public async Task<IActionResult> GetAll()
         {
             var requests = await _requestService.GetAllAsync();
+            return Ok(requests);
+        }
+
+        // Ver solicitudes completadas
+        [HttpGet("completed")]
+        public async Task<IActionResult> GetCompleted()
+        {
+            var requests = await _requestService.GetCompletedAsync();
             return Ok(requests);
         }
 
