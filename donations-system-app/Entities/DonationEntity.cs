@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace donations_system_app.Entities;
 
 public class DonationEntity
@@ -10,5 +12,6 @@ public class DonationEntity
     public string Status { get; set; } = "Available"; // 'Available'--'Delivered'
     public DateTime Date { get; set; } = DateTime.UtcNow;
 
+    [JsonIgnore]
     public DonorEntity Donor { get; set; }
 }

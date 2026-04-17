@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace donations_system_app.Entities;
 
 public class DonorEntity
@@ -14,5 +16,6 @@ public class DonorEntity
     public DateTime RegisteredAt { get; set; } = DateTime.Now;
 
     // Propiedad de navegacion que permite que un mismo donante pueda tener varias donaciones
+    [JsonIgnore]
     public ICollection<DonationEntity> Donations { get; set; } = new List<DonationEntity>();
 }
